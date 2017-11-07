@@ -11,6 +11,7 @@ public:
     Vertix(const Vertix&);
 
     Vertix operator = (Vertix);
+    bool operator == (Vertix);
     void set(Tcor, Tcor, Tcor);
     void print(void);
     Tcor getX(void);

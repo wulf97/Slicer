@@ -11,7 +11,7 @@ PolyLine Cut::cutTriangle(Triangle *t, int z) {
 
     t->print();
     for (int i = 0; i < 3; i++) {
-        v[i] = t->get(i);
+        //v[i] = t->get(i);
     }
 
     min = this->getMin(v);
