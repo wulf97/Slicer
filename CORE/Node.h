@@ -4,20 +4,31 @@
 #include <vector>
 #include "Vertix.h"
 
+class A {
+public:
+    A(){}
+private:
+    Tcor x;
+    Tcor y;
+    Tcor z;
+};
+
 class Node {
 public:
-    Node();
+    Node(Vertix);
 
-    void setVertix(Vertix);
-    void addLink(Vertix);
+    void setNode(Vertix);
+    void addLink(Node*);
     Vertix getVertix();
+    //bool checkLink(Node*);
     void print(void);
     void printUp(void);
     void printDown(void);
 private:
+    Vertix tcor;
     Vertix vertix;
-    std::vector<Vertix> up;
-    std::vector<Vertix> down;
+    std::vector<Node*> up;
+    std::vector<Node*> down;
 };
 
 #endif // NODE_H

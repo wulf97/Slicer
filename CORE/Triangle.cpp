@@ -33,3 +33,29 @@ void Triangle::print(void) {
 Vertix Triangle::get(int i) {
     return this->v[i];
 }
+
+std::vector<Vertix> Triangle::getNeighbors(int index) {
+    std::vector<Vertix> v;
+
+    switch (index) {
+    case 0:
+       v.push_back(this->v[1]);
+       v.push_back(this->v[2]);
+    break;
+    case 1:
+       v.push_back(this->v[0]);
+       v.push_back(this->v[2]);
+    break;
+    case 2:
+       v.push_back(this->v[0]);
+       v.push_back(this->v[1]);
+    break;
+    }
+
+
+    return v;
+}
+
+int Triangle::size() {
+    return 3;
+}

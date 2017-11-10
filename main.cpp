@@ -8,6 +8,7 @@
 #include "Cut.h"
 #include "Test.h"
 
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -23,6 +24,7 @@ int main(int argc, char *argv[])
 
     Test *test = new Test();
     test->init();
+
 
     return app.exec();
 }

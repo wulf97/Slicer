@@ -1,17 +1,24 @@
 #include "Node.h"
 
-Node::Node() {
+Node::Node(Vertix v) {
+    this->vertix = v;
+    //Vertix h = this->vertix;
 }
 
-void Node::setVertix(Vertix v) {
+void Node::setNode(Vertix v) {
     this->vertix = v;
 }
 
-void Node::addLink(Vertix v) {
-    if (v.getZ() >= this->vertix.getZ())
-        this->up.push_back(v);
-    else
-        this->down.push_back(v);
+void Node::addLink(Node *n) {
+    //qDebug() << "*";
+
+    Vertix k;
+    //k = this->tcor;
+    //n->getVertix().getZ();
+    //if (n->getVertix().getZ() >= this->vertix.getZ())
+        //this->up.push_back(n);
+   // else
+        //this->down.push_back(n);
 }
 
 Vertix Node::getVertix() {
@@ -24,10 +31,10 @@ void Node::print(void) {
 
 void Node::printUp(void) {
     for (int i = 0; i < this->up.size(); i++)
-        this->up[i].print();
+        this->up[i]->print();
 }
 
 void Node::printDown(void) {
     for (int i = 0; i < this->down.size(); i++)
-        this->down[i].print();
+        this->down[i]->print();
 }

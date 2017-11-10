@@ -1,15 +1,19 @@
 #ifndef NODEGRAPH_H
 #define NODEGRAPH_H
 
+#include <vector>
 #include "Triangle.h"
 #include "Node.h"
 
 class NodeGraph {
 public:
     NodeGraph(std::vector<Triangle>*);
-    //void initGraph();
 private:
-    std::vector<Node> *set;
+    void setNodeGraph(Triangle);
+    Node *addNode(Vertix);
+    bool checkNode(Vertix&);
+
+    std::vector<Node*> set;
 };
 
 #endif // NODEGRAPH_H

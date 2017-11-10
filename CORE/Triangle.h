@@ -13,6 +13,8 @@ public:
     void set(Vertix, Vertix, Vertix);
     void print(void);
     Vertix get(int);
+    std::vector<Vertix> getNeighbors(int);
+    int size();
 private:
     Vertix n;
     Vertix v[3];
