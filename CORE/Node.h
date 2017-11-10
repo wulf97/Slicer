@@ -8,14 +8,22 @@ class Node {
 public:
     Node(Vertix);
 
+    bool operator == (Node);
+
     void setNode(Vertix);
     void addLink(Node*);
     Vertix getVertix();
-    //bool checkLink(Node*);
+    Node *getUpLink(int);
+    Node *getDownLink(int);
+    int upLinkSize();
+    int downLinkSize();
     void print(void);
     void printUp(void);
     void printDown(void);
+
 private:
+    bool checkLink(Node*);
+
     Vertix vertix;
     std::vector<Node*> up;
     std::vector<Node*> down;

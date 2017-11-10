@@ -8,11 +8,17 @@
 class NodeGraph {
 public:
     NodeGraph(std::vector<Triangle>*);
+
+    int size();
+    void print();
+    void printSet();
 private:
     void setNodeGraph(Triangle);
     Node *addNode(Vertix);
     Node *getNode(Vertix);
+    void sortSet();
 
+    int _size;
     std::vector<Node*> set;
 };
 

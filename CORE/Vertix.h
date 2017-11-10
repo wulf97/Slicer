@@ -12,11 +12,13 @@ public:
 
     void operator = (Vertix);
     bool operator == (Vertix);
+
     void set(Tcor, Tcor, Tcor);
     void print(void);
     Tcor getX(void);
     Tcor getY(void);
     Tcor getZ(void);
+
 private:
     Tcor x;
     Tcor y;

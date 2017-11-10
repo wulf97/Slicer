@@ -11,6 +11,7 @@ class STL {
 public:
     STL(const char*);
     std::vector<Triangle> *getTriangles();
+
 private:
     const char *patch;
 };

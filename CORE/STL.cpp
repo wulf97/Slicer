@@ -17,6 +17,7 @@ std::vector<Triangle> *STL::getTriangles() {
         file.read((char*)&num, sizeof(num));
         t->reserve(num);
 
+        qDebug() << num;
         for (int i = 0; i < num; i++) {
             file.read((char*)&buff, sizeof(buff));
             t->push_back(buff);
@@ -25,5 +26,6 @@ std::vector<Triangle> *STL::getTriangles() {
 
         file.close();
     }
+
     return t;
 }

@@ -1,8 +1,44 @@
 #include "NodeGraph.h"
 
 NodeGraph::NodeGraph(std::vector<Triangle> *t) {
+    this->_size = NULL;
+
     for (int i = 0; i < t->size(); i++) {
         this->setNodeGraph(t->at(i));
+    }
+
+    this->sortSet();
+
+    qDebug() << "End";
+}
+
+int NodeGraph::size() {
+    return this->_size;
+}
+
+void NodeGraph::print() {
+    Node *n;
+
+    for (int i = 0; i < this->_size; i++) {
+        qDebug() << "#" << i;
+        n = this->set[i];
+        n->print();
+
+        qDebug() << "up ->";
+        for (int j = 0; j < n->upLinkSize(); j++) {
+            n->getUpLink(j)->print();
+        }
+
+        qDebug() << "down ->";
+        for (int j = 0; j < n->downLinkSize(); j++) {
+            n->getDownLink(j)->print();
+        }
+    }
+}
+
+void NodeGraph::printSet() {
+    for (int i = 0; i < set.size(); i++) {
+        this->set[i]->print();
     }
 }
 
@@ -34,6 +70,7 @@ Node *NodeGraph::addNode(Vertix v) {
     if (node == NULL) {
         node = new Node(v);
         this->set.push_back(node);
+        _size++;
     }
 
     return node;
@@ -43,9 +80,23 @@ Node *NodeGraph::getNode(Vertix v) {
     Node *node;
 
     for (int i = 0; i < this->set.size(); i++) {
-        node = this->set.at(i);
+        node = this->set[i];
         if (node->getVertix() == v) return node;
     }
 
     return NULL;
+}
+
+void NodeGraph::sortSet() {
+    Vertix v1, v2;
+    for (int i = this->set.size(); i > 0; i--) {
+        for (int j = 0; j < i - 1; j++) {
+            v1 = this->set.at(j)->getVertix();
+            v2 = this->set.at(j + 1)->getVertix();
+
+            if (v1.getZ() >= v2.getZ())
+                std::swap(this->set[j], this->set[j+1]);
+
+        }
+    }
 }

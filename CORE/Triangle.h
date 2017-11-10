@@ -15,6 +15,7 @@ public:
     Vertix get(int);
     std::vector<Vertix> getNeighbors(int);
     int size();
+
 private:
     Vertix n;
     Vertix v[3];
