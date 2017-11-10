@@ -20,7 +20,8 @@ SOURCES = \
     Tests/test_3.cpp \
     CORE/NodeGraph.cpp \
     Tests/test_4.cpp \
-    Tests/test_5.cpp
+    Tests/test_5.cpp \
+    Tests/test_6.cpp
 
 HEADERS = \
     GUI/MainWindow.h \
@@ -37,7 +38,9 @@ HEADERS = \
     Tests/test_3.h \
     CORE/NodeGraph.h \
     Tests/test_4.h \
-    Tests/test_5.h
+    Tests/test_5.h \
+    Tests/test_6.h \
+    CORE/Сore.h
 
 INCLUDEPATH = \
     GUI \

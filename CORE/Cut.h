@@ -1,19 +1,22 @@
 #ifndef CUT_H
 #define CUT_H
 
-#include <QDebug>
 #include <vector>
+#include "Vertix.h"
+#include "NodeGraph.h"
 #include "PolyLine.h"
-#include "Triangle.h"
 
 class Cut {
 public:
-    Cut();
-//private:
-    PolyLine cutTriangle(Triangle*, int z);
+    Cut(NodeGraph*, Tcor);
 private:
-    Vertix getMin(Vertix*);
-    Vertix getMax(Vertix*);
+    PolyLine cutNodeEdges(Node*);
+    Tcor getLength(Tcor, Tcor);
+    Tcor cutXZ(Vertix, Vertix);
+    Tcor cutYZ(Vertix, Vertix);
+
+    NodeGraph *nGraph;
+    Tcor zCor;
 };
 
 #endif // CUT_H

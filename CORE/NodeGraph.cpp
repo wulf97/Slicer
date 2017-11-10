@@ -16,6 +16,10 @@ int NodeGraph::size() {
     return this->_size;
 }
 
+Node *NodeGraph::get(int i) {
+    return this->set[i];
+}
+
 void NodeGraph::print() {
     Node *n;
 

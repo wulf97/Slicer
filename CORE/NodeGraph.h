@@ -10,6 +10,7 @@ public:
     NodeGraph(std::vector<Triangle>*);
 
     int size();
+    Node *get(int);
     void print();
     void printSet();
 private:

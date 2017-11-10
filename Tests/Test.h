@@ -6,6 +6,7 @@
 #include "test_3.h"
 #include "test_4.h"
 #include "test_5.h"
+#include "test_6.h"
 
 class Test {
 public:

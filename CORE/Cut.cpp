@@ -1,65 +1,52 @@
 #include "Cut.h"
 
-Cut::Cut() {
+Cut::Cut(NodeGraph *ng, Tcor z) {
+    this->zCor = z;
+    int i = 0;
 
+    while (ng->get(i)->getVertix().getZ() <= z) {
+        this->cutNodeEdges(ng->get(i)).print();
+        i++;
+    }
 }
 
-PolyLine Cut::cutTriangle(Triangle *t, int z) {
-    PolyLine polyLine;
-    Vertix min, max;
-    Vertix v[3];
+PolyLine Cut::cutNodeEdges(Node *n) {
+    PolyLine pLine;
+    Tcor x, y;
+    Vertix v = n->getVertix();
 
-    t->print();
-    for (int i = 0; i < 3; i++) {
-        //v[i] = t->get(i);
+    for (int i = 0; i < n->upLinkSize(); i++) {
+        if (!(v.getZ() == n->getUpLink(i)->getVertix().getZ())) {
+            x = cutXZ(v, n->getUpLink(i)->getVertix());
+            y = cutYZ(v, n->getUpLink(i)->getVertix());
+        }
+        pLine.addVertix(Vertix(x, y, this->zCor));
     }
 
-    min = this->getMin(v);
-    max = this->getMax(v);
-
-    if (z >= min.getZ() && z <= max.getZ()) {
-         qDebug() << min.getZ();
-         qDebug() << max.getZ();
-    }
-
-    qDebug() << "Is ok!";
-    return polyLine;
+    return pLine;
 }
 
-Vertix Cut::getMin(Vertix *v) {
-    Vertix min;
-
-    //for(int i = 0; i < 3;i++){
-      //  qDebug() << v[i].getZ();}
-    min = v[0];
-    if (v[0].getZ() < v[1].getZ())
-        if (v[0].getZ() < v[2].getZ())
-            min = v[0];
-        else
-            min = v[2];
+Tcor Cut::getLength(Tcor cor_1, Tcor cor_2) {
+    if (cor_1 >= cor_2)
+        return cor_1 - cor_2;
     else
-        if (v[1].getZ() < v[2].getZ())
-            min = v[1];
-        else
-            min = v[2];
-
-    return min;
+        return cor_2 - cor_1;
 }
 
-Vertix Cut::getMax(Vertix *v) {
-    Vertix max;
+Tcor Cut::cutXZ(Vertix v1, Vertix v2) {
+    Tcor x;
 
-    max = v[0];
-    if (v[0].getZ() > v[1].getZ())
-        if (v[0].getZ() > v[2].getZ())
-            max = v[0];
-        else
-            max = v[2];
-    else
-        if (v[1].getZ() > v[2].getZ())
-            max = v[1];
-        else
-            max = v[2];
+    x = getLength(v2.getX(), v1.getX()) * (this->zCor - v1.getZ()) / (v2.getZ() - v1.getZ());
 
-    return max;
+    //qDebug() << v2.getZ() - v1.getZ();
+    return x;
 }
+
+Tcor Cut::cutYZ(Vertix v1, Vertix v2) {
+    Tcor y;
+
+    y = getLength(v2.getY(), v1.getY()) * (this->zCor - v1.getZ()) / (v2.getZ() - v1.getZ());
+
+    return y;
+}
+

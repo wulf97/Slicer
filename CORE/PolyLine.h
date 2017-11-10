@@ -13,7 +13,7 @@ public:
     void print(void);
 private:
     int size;
-    std::vector<Vertix> v;
+    std::vector<Vertix> vertix;
 };
 
 #endif // LINE_H

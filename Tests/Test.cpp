@@ -4,7 +4,8 @@
 //#define TEST_2
 //#define TEST_3
 //#define TEST_4
-#define TEST_5
+//#define TEST_5
+#define TEST_6
 
 Test::Test() {
 
@@ -30,4 +31,8 @@ void Test::init() {
 #ifdef TEST_5
     test_5();
 #endif // TEST_5
+
+#ifdef TEST_6
+    test_6();
+#endif // TEST_6
 }

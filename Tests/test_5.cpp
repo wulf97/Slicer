@@ -6,9 +6,9 @@ void test_5() {
     //STL *stl = new STL("/home/alexej/Downloads/der.STL");
     std::vector<Triangle> *t = stl->getTriangles();
 
-    int time = clock();
+    //int time = clock();
     NodeGraph *n = new NodeGraph(t);
-    qDebug() << "msec: " <<(clock() - time);
+    //qDebug() << "msec: " <<(clock() - time);
 
     qDebug() << "Test 5 **********************************";
     n->print();

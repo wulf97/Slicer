@@ -5,15 +5,16 @@ PolyLine::PolyLine() {
 }
 
 void PolyLine::set(std::vector<Vertix> v) {
-    this->v = v;
+    this->vertix = v;
 }
 
 void PolyLine::addVertix(Vertix v) {
-    this->v.push_back(v);
+    this->vertix.push_back(v);
 }
 
 void PolyLine::print(void) {
-    for(int i = 0; i < this->v.size(); i++) {
-        this->v[i].print();
+    if (this->vertix.size() == NULL) qDebug() << "Emty";
+    for(int i = 0; i < this->vertix.size(); i++) {
+        this->vertix[i].print();
     }
 }
