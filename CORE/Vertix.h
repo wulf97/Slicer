@@ -10,7 +10,7 @@ public:
     Vertix(Tcor _x = 0, Tcor _y = 0, Tcor _z = 0) : x(_x), y(_y), z(_z) {}
     Vertix(const Vertix&);
 
-    Vertix operator = (Vertix);
+    void operator = (Vertix);
     bool operator == (Vertix);
     void set(Tcor, Tcor, Tcor);
     void print(void);

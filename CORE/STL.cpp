@@ -21,8 +21,6 @@ std::vector<Triangle> *STL::getTriangles() {
             file.read((char*)&buff, sizeof(buff));
             t->push_back(buff);
             file.seekg(2, std::ios::cur);
-            //buff.print();
-            //t->at(i).print();
         }
 
         file.close();

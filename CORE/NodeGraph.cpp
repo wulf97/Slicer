@@ -8,21 +8,30 @@ NodeGraph::NodeGraph(std::vector<Triangle> *t) {
 
 void NodeGraph::setNodeGraph(Triangle t) {
     std::vector<Vertix> neighbors;
-    Node *node;
+    Node *node[3];
 
     for (int i = 0; i < t.size(); i++) {
-        node = this->addNode(t.get(i));
-        neighbors = t.getNeighbors(i);
+        node[0] = this->addNode(t.get(i));
+        if (node[0] != NULL) {
+            neighbors = t.getNeighbors(i);
 
-        node->addLink(this->addNode(neighbors.at(0)));
-        node->addLink(this->addNode(neighbors.at(1)));
+            node[1] = this->addNode(neighbors.at(0));
+            if (node[1] != NULL)
+                node[0]->addLink(node[1]);
+
+            node[2] = this->addNode(neighbors.at(1));
+            if (node[2] != NULL)
+                node[0]->addLink(node[2]);
+        }
     }
 }
 
 Node *NodeGraph::addNode(Vertix v) {
-    Node *node = 0;
+    Node *node;
 
-    if (!checkNode(v)) {
+    node = getNode(v);
+
+    if (node == NULL) {
         node = new Node(v);
         this->set.push_back(node);
     }
@@ -30,10 +39,13 @@ Node *NodeGraph::addNode(Vertix v) {
     return node;
 }
 
-bool NodeGraph::checkNode(Vertix &v) {
+Node *NodeGraph::getNode(Vertix v) {
+    Node *node;
+
     for (int i = 0; i < this->set.size(); i++) {
-        if (this->set.at(i)->getVertix() == v) return true;
+        node = this->set.at(i);
+        if (node->getVertix() == v) return node;
     }
 
-    return false;
+    return NULL;
 }

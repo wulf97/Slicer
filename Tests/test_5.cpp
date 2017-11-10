@@ -8,6 +8,4 @@ void test_5() {
 
     qDebug() << "Test 5 **********************************";
 
-
-    Vertix *v = new Vertix(0, 1, 2);
 }

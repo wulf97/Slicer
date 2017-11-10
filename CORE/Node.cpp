@@ -2,7 +2,6 @@
 
 Node::Node(Vertix v) {
     this->vertix = v;
-    //Vertix h = this->vertix;
 }
 
 void Node::setNode(Vertix v) {
@@ -10,15 +9,10 @@ void Node::setNode(Vertix v) {
 }
 
 void Node::addLink(Node *n) {
-    //qDebug() << "*";
-
-    Vertix k;
-    //k = this->tcor;
-    //n->getVertix().getZ();
-    //if (n->getVertix().getZ() >= this->vertix.getZ())
-        //this->up.push_back(n);
-   // else
-        //this->down.push_back(n);
+    if (n->getVertix().getZ() >= this->vertix.getZ())
+        this->up.push_back(n);
+    else
+        this->down.push_back(n);
 }
 
 Vertix Node::getVertix() {

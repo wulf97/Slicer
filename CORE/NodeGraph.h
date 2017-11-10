@@ -11,7 +11,7 @@ public:
 private:
     void setNodeGraph(Triangle);
     Node *addNode(Vertix);
-    bool checkNode(Vertix&);
+    Node *getNode(Vertix);
 
     std::vector<Node*> set;
 };

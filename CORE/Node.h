@@ -4,15 +4,6 @@
 #include <vector>
 #include "Vertix.h"
 
-class A {
-public:
-    A(){}
-private:
-    Tcor x;
-    Tcor y;
-    Tcor z;
-};
-
 class Node {
 public:
     Node(Vertix);
@@ -25,7 +16,6 @@ public:
     void printUp(void);
     void printDown(void);
 private:
-    Vertix tcor;
     Vertix vertix;
     std::vector<Node*> up;
     std::vector<Node*> down;

@@ -6,7 +6,7 @@ Vertix::Vertix(const Vertix &v) {
     this->z = v.z;
 }
 
-Vertix Vertix::operator = (Vertix v) {
+void Vertix::operator = (Vertix v) {
     this->x = v.x;
     this->y = v.y;
     this->z = v.z;
