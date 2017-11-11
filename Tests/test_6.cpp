@@ -6,6 +6,6 @@ void test_6() {
     std::vector<Triangle> *t = stl->getTriangles();
 
     NodeGraph *n = new NodeGraph(t);
-    Cut *cut = new Cut(n, 19);
+    Cut *cut = new Cut(n, 20);
 
 }

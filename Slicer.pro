@@ -40,7 +40,7 @@ HEADERS = \
     Tests/test_4.h \
     Tests/test_5.h \
     Tests/test_6.h \
-    CORE/Сore.h
+    CORE/Core.h \
 
 INCLUDEPATH = \
     GUI \

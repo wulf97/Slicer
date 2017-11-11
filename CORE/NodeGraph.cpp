@@ -29,13 +29,13 @@ void NodeGraph::print() {
         n->print();
 
         qDebug() << "up ->";
-        for (int j = 0; j < n->upLinkSize(); j++) {
-            n->getUpLink(j)->print();
+        for (int j = 0; j < n->upSize(); j++) {
+            n->up(j)->print();
         }
 
         qDebug() << "down ->";
-        for (int j = 0; j < n->downLinkSize(); j++) {
-            n->getDownLink(j)->print();
+        for (int j = 0; j < n->downSize(); j++) {
+            n->down(j)->print();
         }
     }
 }

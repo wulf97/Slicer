@@ -12,12 +12,19 @@ void Vertix::operator = (Vertix v) {
     this->z = v.z;
 }
 
- bool Vertix::operator == (Vertix v) {
-     if (this->getX() == v.getX() && this->getY() == v.getY() && this->getZ() == v.getZ())
+bool Vertix::operator == (Vertix v) {
+    if (this->getX() == v.getX() && this->getY() == v.getY() && this->getZ() == v.getZ())
+       return true;
+    else
+        return false;
+}
+
+bool Vertix::operator != (Vertix v) {
+    if (this->getX() != v.getX() || this->getY() != v.getY() || this->getZ() != v.getZ())
         return true;
-     else
-         return false;
- }
+    else
+        return false;
+}
 
 void Vertix::set(Tcor _x, Tcor _y, Tcor _z) {
     this->x = _x;

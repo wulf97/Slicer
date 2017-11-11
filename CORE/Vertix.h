@@ -12,6 +12,7 @@ public:
 
     void operator = (Vertix);
     bool operator == (Vertix);
+    bool operator != (Vertix);
 
     void set(Tcor, Tcor, Tcor);
     void print(void);
