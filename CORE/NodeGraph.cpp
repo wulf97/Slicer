@@ -1,29 +1,28 @@
 #include "NodeGraph.h"
 
 NodeGraph::NodeGraph(std::vector<Triangle> *t) {
-    this->_size = NULL;
-
     for (int i = 0; i < t->size(); i++) {
         this->setNodeGraph(t->at(i));
     }
 
     this->sortSet();
-
-    qDebug() << "End";
 }
 
 int NodeGraph::size() {
-    return this->_size;
+    return this->set.size();
 }
 
 Node *NodeGraph::get(int i) {
-    return this->set[i];
+    if (i < set.size())
+        return this->set[i];
+    else
+        return NULL;
 }
 
 void NodeGraph::print() {
     Node *n;
 
-    for (int i = 0; i < this->_size; i++) {
+    for (int i = 0; i < this->set.size(); i++) {
         qDebug() << "#" << i;
         n = this->set[i];
         n->print();
@@ -74,7 +73,6 @@ Node *NodeGraph::addNode(Vertix v) {
     if (node == NULL) {
         node = new Node(v);
         this->set.push_back(node);
-        _size++;
     }
 
     return node;

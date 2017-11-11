@@ -19,7 +19,6 @@ private:
     Node *getNode(Vertix);
     void sortSet();
 
-    int _size;
     std::vector<Node*> set;
 };
 

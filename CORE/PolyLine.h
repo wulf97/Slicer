@@ -10,9 +10,11 @@ public:
 
     void set(std::vector<Vertix>);
     void addVertix(Vertix);
+    int size();
     void print(void);
 private:
-    int size;
+    bool check(Vertix);
+
     std::vector<Vertix> vertix;
 };
 

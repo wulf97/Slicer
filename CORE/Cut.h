@@ -16,6 +16,7 @@ private:
     Tcor cutYZ(Vertix, Vertix);
 
     NodeGraph *nGraph;
+    PolyLine pLine;
     Tcor zCor;
 };
 

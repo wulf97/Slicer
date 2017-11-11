@@ -9,7 +9,13 @@ void PolyLine::set(std::vector<Vertix> v) {
 }
 
 void PolyLine::addVertix(Vertix v) {
-    this->vertix.push_back(v);
+    if (!this->check(v)){
+        this->vertix.push_back(v);
+    }
+}
+
+int PolyLine::size() {
+    return this->vertix.size();
 }
 
 void PolyLine::print(void) {
@@ -17,4 +23,12 @@ void PolyLine::print(void) {
     for(int i = 0; i < this->vertix.size(); i++) {
         this->vertix[i].print();
     }
+}
+
+bool PolyLine::check(Vertix v) {
+    for (int i = 0; i < this->vertix.size(); i++) {
+        if (this->vertix[i] == v) return true;
+    }
+
+    return false;
 }
